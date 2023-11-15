@@ -6,32 +6,32 @@
 ##	Agile
 ##	Calidad
 
-20 capítulos de 1 hora
-	Java/Spring boot
-		Estructuras de datos
-		Java
-		Spring
-		Spring boot
-		Configuracion
-	Arquitectura
-		SOLID
-		Servicios
-		Microservicios
-		Mensajería
-		Ambientes
-	Agile
-		Cascada
-		Scrum
-		TDD
-		XP
-		Herramientas de Seguimiento de tareas
-	Calidad
-		Calidad en código
-		Cálidad en arquitectura
-		Cálidad en el trabajo en equipo
-	Valor agregado
-		Expectativas en valor agregado
-		Oportunidades en valor agregado
+# 20 capítulos de 1 hora
+##	Java/Spring boot
+###		Estructuras de datos
+###		Java
+###		Spring
+###		Spring boot
+###		Configuracion
+##	Arquitectura
+###		SOLID
+###		Servicios
+###		BD
+###		Mensajería
+###		Ambientes
+##	Agile
+###		Cascada
+###		Scrum
+###		TDD
+###		XP
+###		Herramientas de Seguimiento de tareas
+##	Calidad
+###		Calidad en código
+###		Cálidad en arquitectura
+###		Cálidad en el trabajo en equipo
+##	Valor agregado
+###		Expectativas en valor agregado
+###		Oportunidades en valor agregado
 
 120 temas de 10 mins
 	Java/Spring boot
