@@ -78,107 +78,107 @@
 31. Separacion por responsabilidad
 31. Separación por dominio
 31. Arquitectura de microservicios
-31. 
-31. 
+31. Principios
+31. Patrones
 ### Bases de datos
-			37.- ¿Por qué? BD
-			38.- SQL
-			39.- Indexes
-			40.- NoSQL
-			41.- Documentos
-			42.- Nodos
+37. ¿Por qué? BD
+37. SQL
+37. Indexes
+37. NoSQL
+37. Documentos
+37. Nodos
 ### SOLID
-			43.- Single responsibility principle
-			44.- Open/Close principle
-			45.- Liskov substitution principle
-			46.- Iterface segregation principle
-			47.- Dependency Inversion principle
-			48.- Results
+43. Single responsibility principle
+43. Open/Close principle
+43. Liskov substitution principle
+43. Iterface segregation principle
+43. Dependency Inversion principle
+43. Results
 ### Mensajería
-			49.- Sistemas distribuidos
-			50.- Mensajes
-			51.- Clientes
-			52.- Consumidor/
-			53.- Productor
-			54.- Tecnologías
+49. Sistemas distribuidos
+49. Mensajes
+49. Clientes
+49. Consumidor
+49. Productor
+49. Tecnologías
 ### Ambientes
-			55.- Porque separar por ambientes?
-			56.- Prod
-			57.- Local
-			58.- Dev
-			59.- QA
-			60.- Performance
+55. Porque separar por ambientes?
+55. Prod
+55. Local
+55. Dev
+55. QA
+55. Performance
 ## Agile
 ### Cascada
-			61.- ¿Qué es?
-			62.- Por qué existe
-			63.- Fases
-			64.- Ventajas
-			65.- Desventajas
-			66.- 
+61. ¿Qué es?
+61. Por qué existe
+61. Fases
+61. Ventajas
+61. Desventajas
+61. Gantt
 ### Agile
-			67.- ¿Qué es?
-			68.- ¿Por qué existe?
-			69.- ¿Cuándo se usa?
-			70.- 
-			71.- 
-			72.- 
+67. ¿Qué es?
+67. ¿Por qué existe?
+67. ¿Cuándo se usa?
+67. Manifiesto Agile
+67. Fases
+67. Lean
 ### XP
-			73.- ¿Qué es?
-			74.- ¿Cuándo se usa?
-			75.- Ciclo de vida 
-			76.- Valores 
-			77.- Reglas
-			78.- Prácticas
+73. ¿Qué es?
+73. ¿Cuándo se usa?
+73. Ciclo de vida 
+73. Valores 
+73. Reglas
+73. Prácticas
 ### TDD
-			79.- ¿Por qué?
-			80.- Beneficios
-			81.- Tests antes del código
-			82.- Fases
-			83.- Mejores Prácticas
-			84.- Niveles de uso
+79. ¿Por qué?
+79. Beneficios
+79. Tests antes del código
+79. Fases
+79. Mejores Prácticas
+79. Niveles de uso
 ### Herramientas de Seguimiento de tareas
-			85.- ¿Qué son las herramientas de seguimiento y para qué sirven?
-			86.- 
-			87.- 
-			88.- 
-			89.- 
-			90.- 
+85. ¿Qué son las herramientas de seguimiento y para qué sirven?
+85. 
+85. 
+85. 
+85. 
+85. 
 ## Calidad
 ### Calidad en código
-			91.- 
-			92.- 
-			93.- 
-			94.- 
-			95.- 
-			96.- 
+91. 
+91. 
+91. 
+91. 
+91. 
+91. 
 ### Calidad en arquitectura
-			97.- 
-			98.- 
-			99.- 
-			100.- 
-			101.- 
-			102.- 
+97. 
+97. 
+97. 
+97. 
+97. 
+97. 
 ### Calidad en el trabajo en equipo
-			103.- 
-			104.- 
-			105.- 
-			106.- 
-			107.- 
-			108.- 
+103. 
+103. 
+103. 
+103. 
+103. 
+103. 
 ## Valor agregado
 ### Expectativas en valor agregado
-			109.- 
-			110.- 
-			111.- 
-			112.- 
-			113.- 
-			114.- 
+109. 
+109. 
+109. 
+109. 
+109. 
+109. 
 ### Oportunidades en valor agregado
-			115.- 
-			116.- 
-			117.- 
-			118.- 
-			119.- 
-			120.- 
+115. 
+115. 
+115. 
+115. 
+115. 
+115. 
 
