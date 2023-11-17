@@ -2,11 +2,17 @@
 
 # Índice para curso de experiencia profesional
 
+
+
+
 ## 4 capitulos principales
 1. Java/Spring boot
 1. Arquitectura
 1. Agile
 1. Calidad
+
+
+
 
 ## 20 capítulos de 1 hora
 ###	Java/Spring boot
@@ -34,6 +40,9 @@
 ###	Valor agregado
 19. Expectativas en valor agregado
 19. Oportunidades en valor agregado
+
+
+
 
 ## 120 temas de 10 mins
 ###	Java/Spring boot
@@ -139,31 +148,31 @@
 79. Niveles de uso
 ### Herramientas de Seguimiento de tareas
 85. ¿Qué son las herramientas de seguimiento y para qué sirven?
-85. 
-85. 
-85. 
+85. Gannt
+85. Kanban
+85. Poker de Puntos de historia 
 85. 
 85. 
 ## Calidad
-### Calidad en código
-91. 
-91. 
-91. 
-91. 
-91. 
-91. 
 ### Calidad en arquitectura
-97. 
-97. 
-97. 
-97. 
-97. 
-97. 
+91. ¿Cómo es un sistema bien hecho?
+91. Requerimientos
+91. Sistemas a la medida
+91. Test regresión
+91. Test performance
+91. Correctitud
+### Calidad en código
+97. ¿Qué es código bien hecho?
+97. Requerimientos
+97. Modularidad
+97. Coverage
+97. Test unitarios
+97. Correctitud
 ### Calidad en el trabajo en equipo
-103. 
-103. 
-103. 
-103. 
+103. Comunicación
+103. KTs
+103. Indice de distancia al poder
+103. Comentarios
 103. 
 103. 
 ## Valor agregado
@@ -182,3 +191,6 @@
 115. 
 115. 
 
+
+
+Jesus Ochoa
