@@ -173,16 +173,16 @@
 103. KTs
 103. Indice de distancia al poder
 103. Comentarios
-103. 
-103. 
+103. Confianza
+103. Logros
 ## Valor agregado
 ### Expectativas en valor agregado
-109. 
-109. 
-109. 
-109. 
-109. 
-109. 
+109. ¿Por qué?
+109. Análisis técnico 
+109. Diseño de sistemas
+109. Utilizacion de recursos
+109. Investigación 
+109. Docencia
 ### Oportunidades en valor agregado
 115. 
 115. 
@@ -190,7 +190,3 @@
 115. 
 115. 
 115. 
-
-
-
-Jesus Ochoa
