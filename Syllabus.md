@@ -42,12 +42,16 @@ En resumen, los objetos y las clases son fundamentales en Java y en la programac
 Una función lambda en Java es una función anónima que se puede utilizar como argumento en métodos o asignar a variables. Se componen de parámetros, una flecha (->) y una expresión que representa el cuerpo de la función. Aquí hay un ejemplo sencillo:
 
 java
-<section>(Parámetros) -> Expresión
-Por ejemplo, podríamos utilizar una función lambda para ordenar una lista de números en orden ascendente:</section>
+```
+```(Parámetros) -> Expresión```
+```
+Por ejemplo, podríamos utilizar una función lambda para ordenar una lista de números en orden ascendente:
 
 java
-<section>List<Integer> numeros = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5);
-numeros.sort((a, b) -> a.compareTo(b));</section>
+```
+```List<Integer> numeros = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5);
+numeros.sort((a, b) -> a.compareTo(b));```
+```
 
 En este ejemplo, la función lambda (a, b) -> a.compareTo(b) se utiliza como argumento en el método sort de la lista numeros. La función lambda toma dos parámetros a y b y devuelve el resultado de llamar al método compareTo, que se utiliza para comparar los elementos de la lista.
 
@@ -56,10 +60,13 @@ Las funciones lambda son especialmente útiles cuando se trabaja con las API de 
 Por ejemplo, supongamos que tenemos una lista de personas y queremos filtrar solo aquellas que sean mayores de 18 años y luego imprimir sus nombres:
 
 java
-<section>List<Persona> personas = obtenerListaDePersonas();
+
+```
+```List<Persona> personas = obtenerListaDePersonas();
 personas.stream()
     .filter(p -> p.getEdad() > 18)
-    .forEach(p -> System.out.println(p.getNombre()));</section>
+    .forEach(p -> System.out.println(p.getNombre()));```
+```
 En este código, utilizamos la función lambda (p -> p.getEdad() > 18) como argumento para el método filter, que filtra las personas mayores de 18 años. Luego, usamos otra función lambda (p -> System.out.println(p.getNombre())) para imprimir el nombre de cada persona que cumple con el filtro.
 
 Las funciones lambda no solo hacen que el código sea más conciso, sino que también mejoran la legibilidad al enfocarse en la lógica específica que se está aplicando a los datos. Esto hace que el código sea más fácil de entender y mantener.
@@ -97,15 +104,16 @@ Un Stream en Java representa una secuencia de elementos que pueden ser procesado
 Aquí hay un ejemplo simple de cómo trabajar con Streams en Java:
 
 java
-Copy code
-List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+```
+```List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 int sumaDeCuadrados = numeros.stream()
     .filter(n -> n % 2 == 0)  // Filtrar números pares
     .map(n -> n * n)          // Elevar al cuadrado
     .reduce(0, Integer::sum);  // Sumar todos los cuadrados
 
-System.out.println("La suma de los cuadrados de los números pares es: " + sumaDeCuadrados);
+System.out.println("La suma de los cuadrados de los números pares es: " + sumaDeCuadrados);```
+```
 En este ejemplo, creamos un Stream a partir de una lista de números, filtramos los números pares, elevamos al cuadrado cada número y luego sumamos los cuadrados resultantes. Todo esto se hace de manera declarativa y funcional en una sola línea de código.
 
 Las operaciones de Streams se dividen en dos categorías: operaciones intermedias y operaciones terminales. Las operaciones intermedias incluyen filter, map, flatMap, distinct, sorted, peek y otras que transforman o filtran los elementos del Stream. Las operaciones terminales, como collect, forEach, reduce y count, cierran el Stream y producen un resultado o efecto final.
