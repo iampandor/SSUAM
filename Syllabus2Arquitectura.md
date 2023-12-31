@@ -106,6 +106,135 @@ classSMSNotification  implements  Notification  {
 	}
 }
 ```
+## Patrones de Diseño Arquitectónico
+
+Además de los Principios SOLID, los Patrones de Diseño Arquitectónico son herramientas para diseñar sistemas de software robustos y escalables. Los patrones de diseño son soluciones probadas para problemas comunes de diseño de software. A continuación, exploraremos algunos patrones de diseño arquitectónico importantes y cómo se aplican en la práctica.
+
+### 1. Patrón Modelo-Vista-Controlador (MVC)
+
+El patrón MVC es ampliamente utilizado en el desarrollo de aplicaciones web y de escritorio. Divide una aplicación en tres componentes principales:
+
+-   **Modelo (Model)**: Representa la lógica de negocio y los datos de la aplicación.
+-   **Vista (View)**: Es responsable de la presentación y la interfaz de usuario.
+-   **Controlador (Controller)**: Maneja las solicitudes del usuario y coordina las acciones entre el Modelo y la Vista.
+
+**Ejemplo:** Supongamos que estamos creando una aplicación web. El Modelo puede ser una clase que maneja la lógica de negocio y accede a la base de datos, la Vista puede ser una página HTML que muestra los datos y el Controlador puede ser una clase que gestiona las solicitudes HTTP y coordina la interacción entre el Modelo y la Vista.
+
+```
+// Modelo
+class  ProductService  {
+	public  Product  getProductById(int  id)  {
+		// Lógica para obtener un producto de la base de datos
+	}
+}
+// Vista  
+class  ProductView  {
+	public  voidrenderProduct(Product product)  {
+		// Generar HTML para mostrar el producto
+	}
+}
+// Controlador
+class  ProductController  {
+	private  ProductService productService;
+	privateProductView productView;
+	public  void  getProductDetails(int  productId)  {
+		Product  product  =  productService.getProductById(productId);
+		productView.renderProduct(product);
+	}
+}
+```
+### 2. Patrón Modelo-Vista-ViewModel (MVVM)
+
+El patrón MVVM es una variante del patrón MVC que se utiliza comúnmente en el desarrollo de aplicaciones de una sola página (SPA) y aplicaciones móviles. Divide la aplicación en tres componentes:
+
+-   **Modelo (Model)**: Representa la lógica de negocio y los datos.
+-   **Vista (View)**: Representa la interfaz de usuario y se actualiza cuando cambia el Modelo.
+-   **ViewModel (ViewModel)**: Actúa como un intermediario entre el Modelo y la Vista, proporcionando datos y lógica de presentación.
+
+**Ejemplo:** Supongamos que estamos desarrollando una aplicación de seguimiento de tareas. El Modelo representa las tareas y su estado, la Vista muestra la lista de tareas y el ViewModel proporciona la lógica para filtrar y ordenar las tareas antes de mostrarlas en la Vista.
+```
+// Modelo 
+class  Task  {
+	private  String title;
+	private  boolean  completed;
+	// Getters y setters
+}
+// Vista
+class  TaskView  {
+	public  void  renderTasks(List<Task> tasks)  {
+		// Generar la lista de tareas en la interfaz de usuario
+	}
+}
+// ViewModel
+class  TaskViewModel{
+	private  List<Task> tasks;
+	public  List<Task>  getFilteredTasks(boolean  showCompleted)  {
+		// Aplicar filtros y ordenamientos a la lista de tareas
+	}
+}
+```
+
+### 3. Patrón Repositorio
+
+El patrón Repositorio se utiliza para separar la lógica de acceso a datos de la lógica de negocio. Proporciona una capa de abstracción entre la aplicación y la base de datos, lo que facilita las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la base de datos.
+
+**Ejemplo:** Supongamos que estamos desarrollando una aplicación de gestión de empleados. El Repositorio se encargaría de realizar consultas a la base de datos para obtener y almacenar información de los empleados, mientras que la lógica de negocio se centraría en las operaciones relacionadas con los empleados.
+```
+interface  EmployeeRepository  {
+	Employee  getById(int  id);
+	List<Employee>  getAll();
+	void save(Employee employee);  void  delete(int  id);
+}
+class  EmployeeService  {
+	private EmployeeRepository employeeRepository;
+	public  List<Employee>  getAllEmployees()  { 
+		return employeeRepository.getAll();
+	}
+	public  void  addEmployee(Employee employee)  {
+		employeeRepository.save(employee);
+	}
+}
+```
+
+### 4. Patrón Inyección de Dependencias (DI - Dependency Injection)
+
+El patrón DI se utiliza para gestionar las dependencias entre los componentes de una aplicación. En lugar de que un componente cree directamente sus dependencias, se le proporcionan desde el exterior (inyectadas), lo que facilita la prueba y la flexibilidad.
+
+**Ejemplo:** Supongamos que estamos desarrollando una aplicación de comercio electrónico. En lugar de que la clase ShoppingCart cree directamente una instancia de ProductService, la instancia de ProductService se inyecta en ShoppingCart a través de un constructor o un método setter. Esto permite intercambiar fácilmente diferentes implementaciones de ProductService sin modificar ShoppingCart.
+
+```
+class  ShoppingCart  {
+	private  ProductService productService;
+	// Constructor de inyección de dependencias
+	public  ShoppingCart(ProductService productService)  {
+		this.productService = productService;
+	}
+	public  void  addItemToCart(int  productId)  {
+		Product  product  =  productService.getProductById(productId);
+		// Lógica para agregar un producto al carrito
+	}
+}
+```
+### 5. Patrón Singleton
+
+El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a esa instancia. Se utiliza cuando se necesita una única instancia compartida en toda la aplicación.
+
+**Ejemplo:** Supongamos que estamos desarrollando una aplicación de registro de eventos. La clase EventLogger podría implementarse como un Singleton para garantizar que todas las partes de la aplicación utilicen la misma instancia de registro de eventos.
+
+```
+class  EventLogger  {
+	private  static  EventLogger  instance  =  new  EventLogger(); 
+	privateEventLogger()  {
+		// Constructor privado para evitar la creación de instancias externas
+	}
+	public  static  EventLogger  getInstance()  {
+		return  instance;
+	}
+	public  void  logEvent(String event)  {
+		// Lógica para registrar el evento
+	}
+}
+```
 ## Arquitectura de Servicios y Comunicación
   La Arquitectura de Servicios, como los microservicios, implica la comunicación entre componentes distribuidos.
   Cómo se establecen y gestionan estas comunicaciones utilizando protocolos como REST o gRPC.
