@@ -108,7 +108,7 @@ classSMSNotification  implements  Notification  {
 ```
 ## Patrones de Diseño Arquitectónico
 
-Además de los Principios SOLID, los Patrones de Diseño Arquitectónico son herramientas para diseñar sistemas de software robustos y escalables. Los patrones de diseño son soluciones probadas para problemas comunes de diseño de software. A continuación, exploraremos algunos patrones de diseño arquitectónico importantes y cómo se aplican en la práctica.
+Además de los Principios SOLID, los Patrones de Diseño Arquitectónico son herramientas para diseñar sistemas de software robustos y escalables. Los patrones de diseño son soluciones probadas para problemas comunes de diseño de software.
 
 ### 1. Patrón Modelo-Vista-Controlador (MVC)
 
@@ -228,6 +228,9 @@ class  EventLogger  {
 		// Constructor privado para evitar la creación de instancias externas
 	}
 	public  static  EventLogger  getInstance()  {
+    if  (instance == null)  {
+        instance  =  new Singleton(value);
+    }
 		return  instance;
 	}
 	public  void  logEvent(String event)  {
@@ -235,6 +238,7 @@ class  EventLogger  {
 	}
 }
 ```
+
 ## Arquitectura de Servicios y Comunicación
   La Arquitectura de Servicios, como los microservicios, implica la comunicación entre componentes distribuidos.
   Cómo se establecen y gestionan estas comunicaciones utilizando protocolos como REST o gRPC.
