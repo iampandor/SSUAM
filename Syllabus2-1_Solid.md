@@ -5,23 +5,47 @@ Los Principios SOLID son un conjunto de cinco directrices que ayudan a los desar
 
 ## 1. Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
 
-El SRP establece que una clase debe tener una única razón para cambiar. En otras palabras, una clase debe tener una sola responsabilidad o función. Esto significa que una clase no debe estar sobrecargada con múltiples responsabilidades que podrían cambiar por diferentes motivos.
+**Explicación:** El SRP establece que una clase debe tener una única razón para cambiar, es decir, debe tener una sola responsabilidad o función. El objetivo principal es mantener el código modular y facilitar el mantenimiento, ya que cada clase se enfoca en un aspecto específico de la funcionalidad del programa.
 
-**Ejemplo:** Supongamos que estamos desarrollando una aplicación de gestión de pedidos en línea. En lugar de tener una clase que maneje tanto el procesamiento de pedidos como la generación de facturas, deberíamos tener dos clases separadas: una para el procesamiento de pedidos y otra para la generación de facturas. Cada clase tiene una única responsabilidad y puede cambiar independientemente de la otra.
+**Ejemplos de casos aplicados:**
 
-
-```
-class  OrderProcessor  {
-	public  void  processOrder(Order order)  {
-	// Lógica para procesar el pedido  
-	}
+1.  **Gestión de Pedidos y Generación de Facturas:** En lugar de tener una sola clase que maneje ambos aspectos, se dividen en dos clases separadas. Esto permite que las futuras modificaciones en la generación de facturas no afecten al procesamiento de pedidos y viceversa.
+    
+    
+```java
+class OrderProcessor {
+    public void processOrder(Order order) {
+        // Lógica para procesar el pedido
+    }
 }
-class  InvoiceGenerator  {
-	public  void  generateInvoice(Order order)  {
-	// Lógica para generar la factura
-	}
+
+class InvoiceGenerator {
+    public void generateInvoice(Order order) {
+        // Lógica para generar la factura
+    }
 }
-```
+```    
+2.  **Registro de Eventos y Envío de Notificaciones:** Supongamos que necesitas llevar un registro de eventos en una aplicación y también enviar notificaciones cuando ocurren ciertos eventos. En lugar de mezclar estas dos responsabilidades en una clase, tendrías dos clases separadas: una para el registro de eventos y otra para el envío de notificaciones.
+    
+    
+    
+```java
+class EventLogger {
+    public void logEvent(Event event) {
+        // Lógica para registrar el evento
+    }
+}
+
+class NotificationSender {
+    public void sendNotification(User user, String message) {
+        // Lógica para enviar la notificación
+    }
+}
+```    
+
+**Casos donde no aplica:** En algunos casos, aplicar el SRP de manera estricta podría llevar a una gran cantidad de clases pequeñas, lo que puede complicar la comprensión del código si se abusa de la fragmentación. En estos casos, es importante encontrar un equilibrio y utilizar el sentido común. No todas las responsabilidades merecen su propia clase si son simples y no cambian con frecuencia.
+
+Por ejemplo, en una clase que representa un objeto de entidad simple, como una estructura de datos simple con atributos y métodos básicos, no es necesario dividirla en múltiples clases solo por cumplir estrictamente con el SRP. En este caso, la simplicidad y la cohesión pueden ser más importantes que la división excesiva. Siempre es esencial considerar el contexto y el propósito de cada clase para aplicar el SRP de manera adecuada.
 
 ## 2. Principio de Abierto/Cerrado (OCP - Open/Closed Principle)
 
