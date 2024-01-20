@@ -1,4 +1,5 @@
-## Arquitectura de Servicios y Comunicación
+
+# Arquitectura de Servicios y Comunicación
 
 La Arquitectura de Servicios es un enfoque de diseño de software que se basa en la descomposición de una aplicación en múltiples servicios independientes, cada uno de los cuales se encarga de una parte específica de la funcionalidad. Cada servicio opera de manera autónoma y se comunica con otros servicios a través de interfaces bien definidas. Esto permite la creación de sistemas altamente escalables y modulares.
 
@@ -12,24 +13,93 @@ Antes de entrar en detalles sobre la comunicación en la Arquitectura de Servici
 
 1. Descomposición de la Aplicación
 
-La descomposición de la aplicación en servicios más pequeños y manejables es uno de los pilares de la Arquitectura de Servicios. En lugar de tener una aplicación monolítica grande y compleja, se divide en servicios independientes, cada uno de los cuales se centra en una funcionalidad específica.
+En lugar de tener una aplicación monolítica grande y compleja, se divide en servicios independientes, cada uno de los cuales se centra en una funcionalidad específica.
 
 Ejemplo:
 En una aplicación de comercio electrónico, podemos tener servicios separados para la gestión de productos, el carrito de compras, el procesamiento de pagos y la gestión de pedidos.
+```Python
+# Servicio de Gestión de Productos
+class ProductManagementService:
+    def __init__(self):
+        self.products = []
 
+    def add_product(self, product):
+        self.products.append(product)
+
+    def get_product(self, product_id):
+        for product in self.products:
+            if product['id'] == product_id:
+                return product
+        return None
+
+# Servicio de Carrito de Compras
+class ShoppingCartService:
+    def __init__(self):
+        self.cart = []
+
+    def add_to_cart(self, product_id):
+        product = product_management_service.get_product(product_id)
+        if product:
+            self.cart.append(product)
+```
 2. Independencia de Implementación y Tecnología
 
 Cada servicio en la Arquitectura de Servicios es independiente en cuanto a su implementación y la tecnología que utiliza. Esto significa que un servicio puede estar escrito en un lenguaje de programación diferente y utilizar una base de datos diferente sin afectar a otros servicios.
 
 Ejemplo:
-El servicio de gestión de productos puede estar escrito en Java y utilizar una base de datos MySQL, mientras que el servicio de procesamiento de pagos puede estar escrito en Python y utilizar una base de datos PostgreSQL.
+En este caso, supongamos que estamos desarrollando una aplicación de comercio electrónico, y el servicio de gestión de productos en Java necesita obtener información sobre un producto desde el servicio de procesamiento de pagos en Python.
+
+```Java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ProductController {
+    @GetMapping("/product/{productId}")
+    public String getProductInfo(@PathVariable Long productId) {
+	    // URL del servicio en Python
+        private final String pythonServiceUrl = "http://localhost:5000"; 
+        // Simulación: Obtener información del producto desde la base de datos del servicio
+        Product product = getProductFromDatabase(productId);
+
+        // Llamar al servicio de Procesamiento de Pagos para obtener el precio del producto
+        // Utilizamos RestTemplate para hacer una solicitud GET al servicio en Python
+        RestTemplate restTemplate = new RestTemplate();
+        String productInfo = restTemplate.getForObject(pythonServiceUrl + "/product/price/" + productId, String.class);
+
+        return "Información del producto: " + product.getName() + "\nPrecio: $" + productPrice;
+    }
+}
+```
+
+```Python
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/product/price/<int:product_id>', methods=['GET'])
+def get_product_price(product_id):
+    # Simulación: Obtener el precio del producto desde la base de datos o sistema de precios
+    product_price = get_product_price_from_database(product_id)
+    return jsonify({"product_id": product_id, "price": product_price})
+
+def get_product_price_from_database(product_id):
+    # Simulación: Obtener el precio del producto desde la base de datos o sistema de precios
+    # Aquí, podrías consultar una base de datos o sistema de precios real para obtener el precio.
+    # En este ejemplo, simplemente simulamos un precio.
+    return 19.99  # Precio simulado
+
+if __name__ == '__main__':
+    app.run(port=5000)
+```
 
 3. Comunicación a Través de Interfaces
 
 Los servicios se comunican entre sí a través de interfaces bien definidas. Esto se logra mediante la exposición de API (Application programming interface) que permiten a los servicios solicitar datos o realizar acciones en otros servicios.
 
 Ejemplo:
-Si un servicio de gestión de pedidos necesita obtener detalles de un producto, puede hacer una solicitud a través de la API proporcionada por el servicio de gestión de productos.
+Un ejemplo de esto es el ejemplo anterior, en el que con una necesitad específica en mente preguntamos al servicio que es dueño de la información que necesitamos
 
 4. Escalabilidad Independiente
 
@@ -37,11 +107,15 @@ Un beneficio importante de la Arquitectura de Servicios es la capacidad de escal
 
 Ejemplo:
 Durante un evento de ventas masivas, el servicio de carrito de compras puede experimentar una carga significativamente mayor, por lo que se puede escalar de manera independiente para manejar la demanda adicional.
+```shell 
+gcloud app deploy
+gcloud app versions update default --min-instances=2 --max-instances=10
+```
 
 
-### Comunicación en la Arquitectura de Servicios
+## Comunicación en la Arquitectura de Servicios
 
-#### Protocolos de Comunicación
+### Protocolos de Comunicación
 Los protocolos de comunicación son un aspecto clave en la Arquitectura de Servicios, ya que determinan cómo los servicios se comunican entre sí. A continuación, se describen dos de los protocolos más comunes utilizados en este contexto:
 
 1. REST (Representational State Transfer)
